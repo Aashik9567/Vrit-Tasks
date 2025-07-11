@@ -1,0 +1,10 @@
+@import "tailwindcss";
+ body {
+    margin: 0;
+   font-family: 'Nohemi', sans-serif;
+  }
+ .taskOneAvatar{
+     min-width: 96px;
+     height: 97px;
+     border-radius:  32px;
+ } 
