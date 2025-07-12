@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import img1 from "/src/assets/task2/img1.png";
+import img2 from "/src/assets/task2/img2.png";
+import img3 from "/src/assets/task2/img3.png";
+import img4 from "/src/assets/task2/img4.png";
+import sticker1 from "/src/assets/task2/1.png";
+import sticker2 from "/src/assets/task2/2.png";
 
 const TaskTwo = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -11,7 +17,7 @@ const TaskTwo = () => {
       description:
         "Overwhelmed by too many learning options? SkillShikshya provides a clear, curated roadmap from the start. Whether you're a beginner or upskilling, we have a path tailored to your growth.",
       bgColor: "#F45B5B",
-      image: "/src/assets/task2/img1.png",
+      image: img1,
       imageStyles: {
         position: "absolute",
         zIndex: 1200,
@@ -28,7 +34,7 @@ const TaskTwo = () => {
       description:
         "Theory is great, but action is better. At SkillShikshya, you learn by doing. Hands-on projects and real-world scenarios help you build, break, and create—leading to true mastery.",
       bgColor: "#5492A0",
-      image: "/src/assets/task2/img4.png",
+      image: img4,
       imageStyles: {
         minWidth: "180.35px",
         minHeight: "367px",
@@ -44,7 +50,7 @@ const TaskTwo = () => {
       description:
         "Stuck or need feedback? SkillShikshya's community of mentors and learners has your back with live support, interactive discussions, and expert insights. You're never on your own.",
       bgColor: "#6C64A8",
-      image: "/src/assets/task2/img3.png",
+      image: img3,
       imageStyles: {
         minWidth: "307.04px",
         minHeight: "249.97px",
@@ -60,7 +66,7 @@ const TaskTwo = () => {
       description:
         "Your journey ends with achievement. Each completed project builds a portfolio showcasing your skills and job readiness, bringing you closer to that dream job, promotion, or your own venture.",
       bgColor: "#A88964",
-      image: "/src/assets/task2/img2.png",
+      image: img2,
       imageStyles: {
         minWidth: "280.04px",
         zIndex: 1200,
@@ -294,7 +300,7 @@ const ArrowRight = () => (
 
                       <div className="">
                         <img
-                          src="/src/assets/task2/1.png"
+                          src={sticker1}
                           alt="Sticker"
                           className="w-[200px] h-[225px] ml-2 absolute bottom-0"
                         />
@@ -313,7 +319,7 @@ const ArrowRight = () => (
                         <div className="absolute justify-center items-center bottom-0">
                           <img
                             className=" w-70 h-76"
-                            src="/src/assets/task2/2.png"
+                            src={sticker2}
                             alt=""
                           />
                         </div>

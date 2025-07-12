@@ -1,6 +1,9 @@
 
 import { motion } from "framer-motion";
-
+import img1 from "/src/assets/task3/img1.png";
+import img2 from "/src/assets/task3/img2.png";
+import img3 from "/src/assets/task3/img3.png";
+import img4 from "/src/assets/task3/img4.png";
 
 const TechIcon = ({ src, alt, size = "80px", delay = 0 }) => {
   return (
@@ -66,10 +69,10 @@ const RotatedText = ({ text, color, className = "" }) => (
 
 const TaskThree = () => {
   const techIcons = [
-    { src: "/src/assets/task3/img1.png", alt: "React", delay: 0.1 },
-    { src: "/src/assets/task3/img2.png", alt: "Figma", delay: 0.2 },
-    { src: "/src/assets/task3/img3.png", alt: "Vue.js", delay: 0.3 },
-    { src: "/src/assets/task3/img4.png", alt: "Flutter", delay: 0.4 },
+    { src: img1, alt: "React", delay: 0.1 },
+    { src: img2, alt: "Figma", delay: 0.2 },
+    { src: img3, alt: "Vue.js", delay: 0.3 },
+    { src: img4, alt: "Flutter", delay: 0.4 },
   ];
   return (
     <div

@@ -1,5 +1,15 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import img1 from "/src/assets/task1/image1.png";
+import img2 from "/src/assets/task1/image2.png";
+import img3 from "/src/assets/task1/image3.png";
+import img4 from "/src/assets/task1/image4.png";
+import img5 from "/src/assets/task1/image5.png";
+import img6 from "/src/assets/task1/image6.png"; 
+import img7 from "/src/assets/task1/image7.png";
+import img8 from "/src/assets/task1/image8.png";
+import img9 from "/src/assets/task1/image9.png";
+import img10 from "/src/assets/task1/image10.png";
 
 const TaskOne = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -83,7 +93,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image1.png"
+                src={img1}
                 alt="Profile 1"
                 style={{
                   width: "96px",
@@ -96,7 +106,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image1.png"
+              src={img1}
               alt="Profile 1"
               style={{
                 width: "96px",
@@ -131,7 +141,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image2.png"
+                src={img2}
                 alt="Profile 2"
                 className="taskOneAvatar"
               />
@@ -140,7 +150,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image2.png"
+              src={img2}
               alt="Profile 2"
               className="taskOneAvatar"
             />
@@ -172,7 +182,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image3.png"
+                src={img3}
                 alt="Star Icon"
                 className="taskOneAvatar"
               />
@@ -181,7 +191,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image3.png"
+              src={img3}
               alt="Star Icon"
               className="taskOneAvatar"
             />
@@ -213,7 +223,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image4.png"
+                src={img4}
                 alt="Profile 3"
                 className="taskOneAvatar"
               />
@@ -222,7 +232,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image4.png"
+              src={img4}
               alt="Profile 3"
               className="taskOneAvatar"
             />
@@ -254,7 +264,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image5.png"
+                src={img5}
                 alt="Like Icon"
                 className="taskOneAvatar"
               />
@@ -263,7 +273,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image5.png"
+              src={img5}
               alt="Like Icon"
               className="taskOneAvatar"
             />
@@ -294,7 +304,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image6.png"
+                src={img6}
                 alt="Profile 4"
                 className="w-[97px] h-[98px] rounded-[32px]"
               />
@@ -303,7 +313,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image6.png"
+              src={img6}
               alt="Profile 4"
               className="w-[97px] h-[98px] rounded-[32px]"
             />
@@ -334,7 +344,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image7.png"
+                src={img7}
                 alt="Chat Icon"
                 className="taskOneAvatar"
               />
@@ -343,7 +353,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image7.png"
+              src={img7}
               alt="Chat Icon"
               className="taskOneAvatar"
             />
@@ -375,7 +385,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image8.png"
+                src={img8}
                 alt="Trophy Icon"
                 className="taskOneAvatar"
               />
@@ -384,7 +394,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image8.png"
+              src={img8}
               alt="Trophy Icon"
               className="taskOneAvatar"
             />
@@ -416,7 +426,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image9.png"
+                src={img9}
                 alt="Profile 5"
                 className="taskOneAvatar"
               />
@@ -425,7 +435,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image9.png"
+              src={img9}
               alt="Profile 5"
               className="taskOneAvatar"
             />
@@ -457,7 +467,7 @@ const TaskOne = () => {
               }}
             >
               <img
-                src="/src/assets/task1/image10.png"
+                src={img10}
                 alt="Heart Icon"
                 className="taskOneAvatar"
               />
@@ -466,7 +476,7 @@ const TaskOne = () => {
           
           {!isHovered && (
             <img
-              src="/src/assets/task1/image10.png"
+              src={img10}
               alt="Heart Icon"
               className="taskOneAvatar"
             />
