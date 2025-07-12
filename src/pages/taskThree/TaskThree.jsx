@@ -1,93 +1,146 @@
-import  { useState } from 'react';
-import { motion } from 'framer-motion';
-import StatCard from '../../components/ui/Card/StatCard';
-import Counter from '../../components/ui/Card/Counter';
-import TechIcon from '../../components/ui/Card/TechIcon';
 
-const TaskThree = () => {
-  const [expandedCard, setExpandedCard] = useState(null);
+import { motion } from "framer-motion";
 
-  const handleCardClick = (cardId) => {
-    setExpandedCard(expandedCard === cardId ? null : cardId);
-  };
 
-  const techIcons = [
-    { src: '/src/assets/task3/img1.png', alt: 'React', delay: 0.1 },
-    { src: '/src/assets/task3/img2.png', alt: 'Figma', delay: 0.2 },
-    { src: '/src/assets/task3/img3.png', alt: 'Vue.js', delay: 0.3 },
-    { src: '/src/assets/task3/img4.png', alt: 'Flutter', delay: 0.4 }
-  ];
-
+const TechIcon = ({ src, alt, size = "80px", delay = 0 }) => {
   return (
-    <div 
-      className="relative bg-white"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.5 }}
       style={{
-        width: '1440px',
-        height: '817px',
-        margin: '0 auto',
-        padding: '80px 120px'
+        width: size,
+        height: size,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      {/* Header Section */}
+      <img
+        src={src}
+        alt={alt}
+        style={{ maxWidth: "100%", maxHeight: "100%" }}
+      />
+    </motion.div>
+  );
+};
+
+const Card = ({
+  children,
+  backgroundColor = "#FFFFFF",
+  isClickable = false,
+  style = {},
+}) => {
+  return (
+    <motion.div
+      className={`relative rounded-3xl shadow-lg flex flex-col justify-between overflow-hidden ${
+        isClickable ? "cursor-pointer" : ""
+      }`}
+      layout
+      style={{
+        backgroundColor,
+        ...style,
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+const RotatedText = ({ text, color, className = "" }) => (
+  <div
+    className={` ${className} absolute bottom-[50px] h-auto -rotate-90 w-[90%] text-wrap -right-[30px]`}
+  >
+    <span
+      style={{
+        color,
+        fontSize: "12px",
+        fontWeight: "500",
+        fontFamily: "Nohemi, sans-serif",
+      }}
+    >
+      {text}
+    </span>
+  </div>
+);
+
+const TaskThree = () => {
+  const techIcons = [
+    { src: "/src/assets/task3/img1.png", alt: "React", delay: 0.1 },
+    { src: "/src/assets/task3/img2.png", alt: "Figma", delay: 0.2 },
+    { src: "/src/assets/task3/img3.png", alt: "Vue.js", delay: 0.3 },
+    { src: "/src/assets/task3/img4.png", alt: "Flutter", delay: 0.4 },
+  ];
+  return (
+    <div
+      className="relative bg-white"
+      style={{
+        width: "100%",
+        maxWidth: "1440px",
+        margin: "0 auto",
+        padding: "80px 120px",
+        boxSizing: "border-box",
+      }}
+    >
       <div className="mb-12">
-        <h3 
-          className="text-gray-600 mb-4"
+        <h3
+          className="text-[#414141] mb-[20px]"
           style={{
-            fontSize: '16px',
-            fontWeight: '400',
-            fontFamily: 'Nohemi, sans-serif'
+            fontSize: "24px",
+            fontWeight: "400",
+            fontFamily: "Nohemi, sans-serif",
           }}
         >
           Explore our classes and master trending skills!
         </h3>
-        
-        <h1 
+
+        <h1
           style={{
-            fontSize: '48px',
-            fontWeight: '700',
-            fontFamily: 'Nohemi, sans-serif',
-            lineHeight: '1.2'
+            fontSize: "32px",
+            fontWeight: "700",
+            fontFamily: "Nohemi, sans-serif",
+            lineHeight: "1.2",
           }}
         >
-          <span style={{ color: '#1F2937' }}>Dive Into </span>
-          <span style={{ color: '#10B981' }}>What's Hot Right Now!</span>
+          <span style={{ color: "#2B2B2B" }}>Dive Into </span>
+          <span style={{ color: "#1DA077" }}>What's Hot Right Now!</span>
           <span> 🔥</span>
         </h1>
       </div>
 
-      {/* Cards Grid */}
-      <div 
-        className="grid grid-cols-3 gap-6"
+      <div
+        className="grid grid-cols-3"
         style={{
-          gridTemplateColumns: '2fr 1fr 1fr',
-          gap: '24px'
+          display: "grid",
+          gridTemplateColumns: "2fr 1fr 1fr",
+          gap: "24px",
         }}
       >
-        {/* Card 1 - All Courses (Main Card) */}
-        <StatCard
+        <Card
           backgroundColor="#C33241"
           style={{
-            width: '696px',
-            height: '456px',
-            padding: '40px'
+            width: "592px",
+            height: "461px",
+            padding: "40px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
           }}
         >
-          {/* View All Courses Button */}
-          <div className="flex justify-end mb-8">
-            <button 
-              className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full px-6 py-3 font-medium transition-all duration-300"
+          <div className="flex justify-end">
+            <button
+              className="text-white rounded-full px-6 py-3 font-medium transition-all duration-300 flex items-center"
               style={{
-                fontSize: '16px',
-                fontWeight: '600',
-                fontFamily: 'Nohemi, sans-serif'
+                fontSize: "16px",
+                fontWeight: "600",
+                fontFamily: "Nohemi, sans-serif",
               }}
             >
-              View all Courses →
+              View all Courses <span className="ml-2"> → </span>
             </button>
           </div>
 
-          {/* Tech Icons */}
-          <div className="flex justify-center gap-6 mb-12">
+          <div className="flex justify-center gap-6">
             {techIcons.map((icon, index) => (
               <TechIcon
                 key={index}
@@ -99,127 +152,73 @@ const TaskThree = () => {
             ))}
           </div>
 
-          {/* Main Counter */}
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <Counter
-                end={23}
-                duration={2}
-                fontSize="180px"
-                color="#FFFFFF"
-              />
-              <motion.span
-                className="text-white text-6xl font-black"
+          <div className="flex items-end justify-center gap-8 mt-auto">
+            <div className="flex items-start">
+              <span
                 style={{
-                  fontSize: '60px',
-                  fontWeight: '800',
-                  fontFamily: 'Nohemi, sans-serif'
+                  fontSize: "150px",
+                  fontWeight: "700",
+                  color: "#FFFFFF",
+                  fontFamily: "Nohemi, sans-serif",
+                  lineHeight: "0.9",
                 }}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.5 }}
+              >
+                23
+              </span>
+              <span
+                style={{
+                  fontSize: "70px",
+                  fontWeight: "700",
+                  color: "#FFFFFF",
+                  fontFamily: "Nohemi, sans-serif",
+                  lineHeight: "0.8",
+                  marginLeft: "-10px",
+                  marginTop: "-10px",
+                }}
               >
                 +
-              </motion.span>
+              </span>
             </div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2 }}
-            >
-              <h3 
-                className="text-white font-bold mb-2"
-                style={{
-                  fontSize: '32px',
-                  fontWeight: '700',
-                  fontFamily: 'Nohemi, sans-serif'
-                }}
+            <div className="text-white text-left">
+              <h3
+                className="font-bold"
+                style={{ fontSize: "32px", fontFamily: "Nohemi, sans-serif" }}
               >
                 All Courses
               </h3>
-              <p 
-                className="text-white text-opacity-90"
+              <p
                 style={{
-                  fontSize: '16px',
-                  fontWeight: '400',
-                  fontFamily: 'Nohemi, sans-serif'
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  fontFamily: "Nohemi, sans-serif",
                 }}
               >
                 courses you're powering through right now.
               </p>
-            </motion.div>
+            </div>
           </div>
-        </StatCard>
+        </Card>
 
-        {/* Card 2 - Upcoming Courses */}
-        <StatCard
-          backgroundColor="#F5F5F5"
+        <Card
+          backgroundColor="#FFF5F5"
           isClickable={true}
-          onClick={() => handleCardClick(2)}
-          isExpanded={expandedCard === 2}
           style={{
-            width: '320px',
-            height: '456px',
-            padding: '40px'
+            height: "456px",
+            padding: "40px",
+            position: "relative",
+            overflow: "visible",
           }}
         >
-          <div className="h-full flex flex-col justify-center items-center text-center">
-            {/* Rotated Text */}
-            <motion.div
-              className="absolute top-8 right-8"
-              style={{
-                transform: 'rotate(90deg)',
-                transformOrigin: 'center'
-              }}
-            >
-              <span 
-                className="text-sm font-medium"
-                style={{
-                  color: '#C33241',
-                  fontSize: '12px',
-                  fontWeight: '500',
-                  fontFamily: 'Nohemi, sans-serif'
-                }}
-              >
-                exciting new courses waiting to boost your skills.
-              </span>
-            </motion.div>
-
-            {/* Main Content */}
-            <div>
-              <motion.div
-                className="flex items-center justify-center gap-2 mb-4"
-                animate={expandedCard === 2 ? { scale: 1.1 } : { scale: 1 }}
-              >
-                <Counter
-                  end={5}
-                  duration={1.5}
-                  fontSize="120px"
-                  color="#C33241"
-                />
-                <span 
-                  className="text-6xl font-black"
-                  style={{
-                    fontSize: '60px',
-                    fontWeight: '800',
-                    color: '#C33241',
-                    fontFamily: 'Nohemi, sans-serif'
-                  }}
-                >
-                  +
-                </span>
-              </motion.div>
-
+          <div className="flex gap-2 relative top-[200px]">
+            <div className="mt-4 flex flex-col absolute   -rotate-90 bottom-[10px]">
               <motion.h3
-                className="font-bold mb-2"
+                className="font-bold"
                 style={{
-                  fontSize: '24px',
-                  fontWeight: '700',
-                  color: '#C33241',
-                  fontFamily: 'Nohemi, sans-serif'
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  color: "#C33241",
+                  fontFamily: "Nohemi, sans-serif",
                 }}
-                animate={expandedCard === 2 ? { y: [0, -5, 0] } : {}}
                 transition={{ duration: 0.5 }}
               >
                 Upcoming
@@ -227,104 +226,75 @@ const TaskThree = () => {
               <h3
                 className="font-bold"
                 style={{
-                  fontSize: '24px',
-                  fontWeight: '700',
-                  color: '#C33241',
-                  fontFamily: 'Nohemi, sans-serif'
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  color: "#C33241",
+                  fontFamily: "Nohemi, sans-serif",
                 }}
               >
                 Courses
               </h3>
             </div>
-
-            {/* Expanded Content */}
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={expandedCard === 2 ? { 
-                opacity: 1, 
-                height: 'auto',
-                transition: { duration: 0.3 }
-              } : { 
-                opacity: 0, 
-                height: 0 
-              }}
-              className="mt-4 text-sm"
-            >
-              <p style={{ color: '#666', fontFamily: 'Nohemi, sans-serif' }}>
-                New courses launching soon!
-              </p>
-            </motion.div>
+            <RotatedText
+              text="exciting new courses waiting to boost your skills."
+              color="#C33241"
+              className=" text-xl "
+            />
           </div>
-        </StatCard>
-
-        {/* Card 3 - Ongoing Courses */}
-        <StatCard
-          backgroundColor="#F5F5F5"
-          isClickable={true}
-          onClick={() => handleCardClick(3)}
-          isExpanded={expandedCard === 3}
-          style={{
-            width: '320px',
-            height: '456px',
-            padding: '40px'
-          }}
-        >
-          <div className="h-full flex flex-col justify-center items-center text-center">
-            {/* Rotated Text */}
-            <motion.div
-              className="absolute top-8 right-8"
-              style={{
-                transform: 'rotate(90deg)',
-                transformOrigin: 'center'
-              }}
-            >
-              <span 
-                className="text-sm font-medium"
+          <div className="h-auto  flex flex-col justify-center items-center text-center">
+            <div className="relative">
+              <div
                 style={{
-                  color: '#C33241',
-                  fontSize: '12px',
-                  fontWeight: '500',
-                  fontFamily: 'Nohemi, sans-serif'
+                  fontSize: "140px",
+                  fontWeight: "700",
+                  color: "#C33241",
+                  fontFamily: "Nohemi, sans-serif",
+                  lineHeight: "0.9",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
-                currently happening—don't miss out on the action!
-              </span>
-            </motion.div>
-
-            {/* Main Content */}
-            <div>
-              <motion.div
-                className="flex items-center justify-center gap-2 mb-4"
-                animate={expandedCard === 3 ? { scale: 1.1 } : { scale: 1 }}
-              >
-                <Counter
-                  end={10}
-                  duration={1.5}
-                  fontSize="120px"
-                  color="#C33241"
-                />
-                <span 
-                  className="text-6xl font-black"
+                05
+                <span
                   style={{
-                    fontSize: '60px',
-                    fontWeight: '800',
-                    color: '#C33241',
-                    fontFamily: 'Nohemi, sans-serif'
+                    fontSize: "60px",
+                    fontWeight: "700",
+                    color: "#C33241",
+                    fontFamily: "Nohemi, sans-serif",
+                    marginLeft: "-10px",
+                    lineHeight: "0.8",
+                    position: "relative",
+                    top: "-20px",
                   }}
                 >
                   +
                 </span>
-              </motion.div>
+              </div>
+            </div>
+          </div>
+        </Card>
 
+        <Card
+          backgroundColor="#FFF5F5"
+          isClickable={true}
+          style={{
+            height: "456px",
+            padding: "40px",
+            position: "relative",
+            overflow: "visible",
+          }}
+        >
+          <div className="flex gap-2 relative top-[200px]">
+            <div className="mt-4 flex flex-col absolute -rotate-90 bottom-[10px]">
               <motion.h3
-                className="font-bold mb-2"
+                className="font-bold"
                 style={{
-                  fontSize: '24px',
-                  fontWeight: '700',
-                  color: '#C33241',
-                  fontFamily: 'Nohemi, sans-serif'
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  color: "#C33241",
+                  fontFamily: "Nohemi, sans-serif",
                 }}
-                animate={expandedCard === 3 ? { y: [0, -5, 0] } : {}}
                 transition={{ duration: 0.5 }}
               >
                 Ongoing
@@ -332,38 +302,56 @@ const TaskThree = () => {
               <h3
                 className="font-bold"
                 style={{
-                  fontSize: '24px',
-                  fontWeight: '700',
-                  color: '#C33241',
-                  fontFamily: 'Nohemi, sans-serif'
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  color: "#C33241",
+                  fontFamily: "Nohemi, sans-serif",
                 }}
               >
                 Courses
               </h3>
             </div>
-
-            {/* Expanded Content */}
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={expandedCard === 3 ? { 
-                opacity: 1, 
-                height: 'auto',
-                transition: { duration: 0.3 }
-              } : { 
-                opacity: 0, 
-                height: 0 
-              }}
-              className="mt-4 text-sm"
-            >
-              <p style={{ color: '#666', fontFamily: 'Nohemi, sans-serif' }}>
-                Active courses in progress!
-              </p>
-            </motion.div>
+            <RotatedText
+              text="currently happening—don't miss out on the action!"
+              color="#C33241"
+              className=" text-xl "
+            />
           </div>
-        </StatCard>
+          <div className="h-auto flex flex-col justify-center items-center text-center">
+            <div className="relative">
+              <div
+                style={{
+                  fontSize: "140px",
+                  fontWeight: "700",
+                  color: "#C33241",
+                  fontFamily: "Nohemi, sans-serif",
+                  lineHeight: "0.9",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                10
+                <span
+                  style={{
+                    fontSize: "60px",
+                    fontWeight: "700",
+                    color: "#C33241",
+                    fontFamily: "Nohemi, sans-serif",
+                    marginLeft: "-10px",
+                    lineHeight: "0.8",
+                    position: "relative",
+                    top: "-20px",
+                  }}
+                >
+                  +
+                </span>
+              </div>
+            </div>
+          </div>
+        </Card>
       </div>
     </div>
   );
 };
-
 export default TaskThree;

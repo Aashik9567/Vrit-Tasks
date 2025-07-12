@@ -9,7 +9,6 @@ export default function VideoTask({
 }) {
   const [rects, setRects] = useState([]);
 
-  // Helper: create random unique grid positions
   function getRandomRects() {
     const spots = new Set();
     while (spots.size < rectCount) {
@@ -31,7 +30,6 @@ export default function VideoTask({
     return () => clearInterval(interval);
   }, [gridSize, rectCount, frameDelay]);
 
-  // For the grid background lines
   const gridLines = [];
   for (let i = 1; i < gridSize; i++) {
     gridLines.push(
@@ -79,9 +77,8 @@ export default function VideoTask({
         minHeight: 320,
       }}
     >
-      {/* Grid lines */}
+
       {gridLines}
-      {/* Animated purple rectangles */}
       <AnimatePresence>
         {rects.map(({ row, col }) => (
           <motion.div
@@ -93,7 +90,7 @@ export default function VideoTask({
             style={{
               position: "absolute",
               borderRadius: "0.25rem",
-              background: "#7c3aed", // Tailwind purple-600
+              background: "#7c3aed", 
               width: cellSize,
               height: cellSize,
               left: col * cellSize,

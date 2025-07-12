@@ -15,6 +15,9 @@ const Homepage = () => {
         <Button onClick={()=>navigate("/taskthree")} size="lg" className="w-48"  href="/task3">
           Task 3
         </Button>
+        <Button onClick={()=>navigate("/video")} size="lg" className="w-48"  href="/video">
+          Video Animation
+        </Button>
       </div>
     </div>
   );
